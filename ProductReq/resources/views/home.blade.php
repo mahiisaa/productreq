@@ -1,9 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
+        <div class="row mt-5 " id="test">
+                              
+                              <div class="col-lg-4 mb-3 text-dark">
+                                  <div class="card text-dark h-100 py-2" style="background-color:#90caf9">
+                                  
+                                      <div class="card-body">
+                                           ارسال نشده
+                                          <div class="text-black-50 small">{{$basketcount}}</div>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="col-lg-4 mb-3">
+                                  <div class="card bg-info text-white h-100 py-2">
+                                      <div class="card-body">
+                                          در حال بررسی
+                                          <div class="text-white-50 small">{{$basketcount}}</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 mb-3">
+                                  <div class="card  text-white h-100 py-2" style="background-color:#0d47a1">
+                                      <div class="card-body">
+                                          تایید شده
+                                          <div class="text-white-50 small">{{$basketcount}}</div>
+                                      </div>
+                                  </div>
+                              </div>
+      </div>
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -15,41 +44,15 @@
                     @endif
 
 
-    <div class="row">
-                              
-                                <div class="col-lg-4 mb-3">
-                                    <div class="card bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            ارسال نشده
-                                            <div class="text-white-50 small">{{$basketcount}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 mb-3">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
-                                            در حال بررسی
-                                            <div class="text-white-50 small">{{$basketcount}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 mb-3">
-                                    <div class="card bg-success text-white shadow">
-                                        <div class="card-body">
-                                            تایید شده
-                                            <div class="text-white-50 small">{{$basketcount}}</div>
-                                        </div>
-                                    </div>
-                                </div>
-    </div>
+    
    <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">t</th>
-      <th scope="col">title</th>
-      <th scope="col">count</th>
-      <th scope="col">add to cart</th>
+      <th scope="col">شماره ردیف</th>
+      <th scope="col">نام محصول</th>
+      <th scope="col">تعداد</th>
+      <th scope="col">عملیات درخواست</th>
+    
     
     </tr>
   </thead>
@@ -58,7 +61,6 @@
     <tr>
     
       <th scope="row" class="proId">{{$product->id}}</th>
-      <td>{{$product->id}}</td>
       <td>{{$product->title}}</td>
       <td class="x">{{$product->count}}</td>
       <td>   
@@ -68,7 +70,7 @@
        <input class="form-control counter col-md-2" type="text" name="qnt" value="0"></input>
        
       <input type="button" class="btn btn-outline-danger sub" value="-" ></input>
-      <input type="submit" class="btn btn-danger " value="add to cart"></input>
+      <input type="submit" class="btn btn-danger " value="اضافه به سبد"></input>
       <input type="text" class="btn btn-danger d-none productID" name="productID" value=""></input>
       </form>
       </td>
@@ -80,7 +82,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 <script>
 
